@@ -1,4 +1,4 @@
-const API_URL = 'http://www.localhost:3200';
+const API_URL = 'http://forex-dashboard-ayp.herokuapp.com';
 
 const makeRequest = async (method,url, body = null) => new Promise((resolve,reject) => {
     const request = new XMLHttpRequest();

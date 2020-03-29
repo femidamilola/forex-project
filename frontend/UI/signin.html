@@ -1,62 +1,65 @@
- 
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <title>Sign in</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Sign in</title>
 
-       <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <!-- Font Icon -->
+    <link href="fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="css/style.css">
- </head>
- <body>
-     <!-- Sign in  Form -->
- <section class="sign-in">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<!-- Sign in  Form -->
+<section class="sign-in">
     <div class="container">
         <div class="signin-content">
             <div class="signin-image">
-                <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
-                <a href="sign up.html" class="signup-image-link">Create an account</a>
+                <figure><img alt="sing up image" src="images/signin-image.jpg"></figure>
+                <a class="signup-image-link" href="sign up.html">Create an account</a>
             </div>
 
             <div class="signin-form">
                 <h2 class="form-title">Login</h2>
-                <form method="POST" class="register-form" id="login-form">
+                <form class="register-form" id="login-form" method="POST">
                     <div class="form-group">
-                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                        <label for="your_email"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input id="your_email" name="email" placeholder="Your Email" type="text"/>
                     </div>
                     <div class="form-group">
                         <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                        <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                        <input id="your_pass" name="password" placeholder="Password" type="password"/>
                     </div>
-                    <div class="form-group">
-                        <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                        <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <input class="agree-term" id="remember-me" name="remember-me" type="checkbox"/>-->
+<!--                        <label class="label-agree-term" for="remember-me"><span><span></span></span>Remember me</label>-->
+<!--                    </div>-->
                     <div class="form-group form-button">
-                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                        <button class="form-submit" id="signin" name="signin" type="submit">
+                            Log in
+                        </button>
                     </div>
                 </form>
-                <div class="social-login">
-                    <span class="social-label">Or login with</span>
-                    <ul class="socials">
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                    </ul>
-                </div>
+<!--                <div class="social-login">-->
+<!--                    <span class="social-label">Or login with</span>-->
+<!--                    <ul class="socials">-->
+<!--                        <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>-->
+<!--                        <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>-->
+<!--                        <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
             </div>
         </div>
     </div>
 </section>
 
-</div>
-     
- </body>
- </html>
+<script src="js/status.js"></script>
+<script src="js/api.js"></script>
+<script src="js/signin.js"></script>
+
+</body>
+</html>
  

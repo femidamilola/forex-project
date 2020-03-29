@@ -729,3 +729,22 @@ label.valid:after {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* Admin dashboard */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    
+    width:90%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+      height: 2.5rem;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }

@@ -23,8 +23,13 @@ signUp.addEventListener('click', async (e) => {
         const response = await window.fetchHelper('POST', 'signup', values);
         signUp.classList.remove('loading');
         signUp.disabled = false;
+        const responseJson = JSON.parse(response.responseText);
         if(response.status === 201){
             window.setStatus('success',true,'User created. Redirecting to dashboard');
+            localStorage.setItem('user', JSON.stringify({
+                email: values.email,
+                token: responseJson.token
+            }));
             setTimeout(() => {
                 location.assign('dashboard.html')
             },3000)

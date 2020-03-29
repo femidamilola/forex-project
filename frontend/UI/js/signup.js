@@ -31,7 +31,7 @@ signUp.addEventListener('click', async (e) => {
                 token: responseJson.token
             }));
             setTimeout(() => {
-                location.assign('dashboard.html')
+                location.assign('user.html')
             },3000)
         }else if(response.status === 400){
             window.setStatus('error',true,'User already exists. Kindly try another email or go to the login page')

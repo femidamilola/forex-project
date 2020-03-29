@@ -111,3 +111,16 @@ body{
     }
 }
 
+@media (max-width: 800px) {
+    .tableRow,
+    .tableHeader{
+        grid-template-columns: 1fr;
+        height: fit-content;
+        grid-row-gap: 20px;
+        padding: 30px 40px;
+    }
+    .buttons{
+        display: grid;
+        grid-template-columns: 100px 100px;
+    }
+}

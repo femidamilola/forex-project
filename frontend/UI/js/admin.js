@@ -139,3 +139,10 @@ profitButton.addEventListener('click', async () => {
     profitButton.classList.remove('loading');
     profitModal.classList.remove('active');
 });
+
+[...document.querySelectorAll('.modalCancel')].forEach(button => {
+    button.addEventListener('click', () => {
+        const {target} = button.dataset;
+        document.getElementById(target).classList.remove('active');
+    })
+})

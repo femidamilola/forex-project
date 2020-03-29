@@ -18,9 +18,24 @@
     min-height: 80vh;
     background-color: white;
     border-radius: 10px;
-    transition: 300ms;
+    transition: 600ms;
     transform: scale(0) translateY(30px);
     padding: 50px;
+}
+
+.modalCancel{
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.modalCancel img{
+    width: 100%;
 }
 
 .modalWrapper.active{

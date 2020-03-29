@@ -84,7 +84,7 @@ const getButtons = (id) => {
 };
 
 const renderUsers = () => {
-    // [...document.querySelectorAll('.tableRow')].forEach(row => row.remove());
+    [...document.querySelectorAll('.tableRow')].forEach(row => row.remove());
     users.forEach(user => {
         const div = getRow(user);
         div.id = user._id;
@@ -155,7 +155,7 @@ profitButton.addEventListener('click', async () => {
     });
     if(fetch.status === 200){
         const userIndex = users.findIndex(({email}) => email === currentProfit);
-        users[userIndex].currentBalance += amount;
+        users[userIndex].currentBalance += Number(amount);
         renderUsers();
     }else{
         window.setStatus('error', true, 'There was an issue updating the records. Kindly try again')

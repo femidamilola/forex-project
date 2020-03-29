@@ -9,25 +9,89 @@
     <title>Admin Dashboard</title>
 </head>
 <body>
-    <img class="backgroundImage" src="2%20(1).jpg">
-    <div class="mx-10 my-16 italic text-center" style="display: flex">
-        <div style="position: relative;margin: auto">
-            <div>
-                <h1 class="text-3xl userName" id="">Hello Username</h1>
+    <main>
+        <h1 class="userName" id="name">
+            Welcome Nifemi
+        </h1>
+        <div class="cards">
+            <div class="card">
+                <img src="./images/email.svg" alt="Icon">
+                <div>
+                    <p class="cardText" id="email">
+                        deyeminifemi@gmail.com
+                    </p>
+                    <span class="cardTextLabel">
+                        Email
+                    </span>
+                </div>
             </div>
-            <div class="mt-10 row">
-                <label class="text-xl rowLabel">Amount Deposited</label>
-                <input class="h-12  pl-5" placeholder="Deposits" style="border: 2px solid black;" type="text">
+            <div class="card">
+                <img src="./images/userId.svg" alt="Icon">
+                <div>
+                    <p class="cardText" id="_id">
+                        5423121
+                    </p>
+                    <span class="cardTextLabel">
+                        Merchant ID
+                    </span>
+                </div>
             </div>
-            <div class="mt-10 row">
-                <label class="text-xl rowLabel">Current Balance</label>
-                <input class=" h-12  pl-5" placeholder="Balance" style="border: 2px solid black;" type="text">
+            <div class="card">
+                <img src="./images/balance.svg" alt="Icon">
+                <div>
+                    <p class="cardText" id="currentBalance">
+                        3000
+                    </p>
+                    <span class="cardTextLabel">
+                        Current Balance
+                    </span>
+                </div>
             </div>
-            <div class="mt-10 row">
-                <label class="text-xl rowLabel">Profit Increase</label>
-                <input class=" h-12  pl-5" placeholder="% Increase" style="border: 2px solid black;" type="text">
+            <div class="card">
+                <img src="./images/deposit.svg" alt="Icon">
+                <div>
+                    <p class="cardText" id="amountDeposited">
+                        300
+                    </p>
+                    <span class="cardTextLabel">
+                        Amount Deposited
+                    </span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./images/percentage.svg" alt="Icon">
+                <div>
+                    <p class="cardText" id="increase">
+                        10%
+                    </p>
+                    <span class="cardTextLabel">
+                        Percentage Incrase
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+<!--    <img class="backgroundImage" src="2%20(1).jpg">-->
+<!--    <div class="mx-10 my-16 italic text-center" style="display: flex">-->
+<!--        <div style="position: relative;margin: auto">-->
+<!--            <div>-->
+<!--                <h1 class="text-3xl userName" id="">Hello Username</h1>-->
+<!--            </div>-->
+<!--            <div class="mt-10 row">-->
+<!--                <label class="text-xl rowLabel">Amount Deposited</label>-->
+<!--                <input class="h-12  pl-5" placeholder="Deposits" style="border: 2px solid black;" type="text">-->
+<!--            </div>-->
+<!--            <div class="mt-10 row">-->
+<!--                <label class="text-xl rowLabel">Current Balance</label>-->
+<!--                <input class=" h-12  pl-5" placeholder="Balance" style="border: 2px solid black;" type="text">-->
+<!--            </div>-->
+<!--            <div class="mt-10 row">-->
+<!--                <label class="text-xl rowLabel">Profit Increase</label>-->
+<!--                <input class=" h-12  pl-5" placeholder="% Increase" style="border: 2px solid black;" type="text">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <script src="./js/api.js"></script>
+    <script src="./js/user.js"></script>
 </body>
 </html>

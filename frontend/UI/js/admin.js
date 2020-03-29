@@ -10,18 +10,33 @@ const getRow = ({name, email, currentBalance, amountDeposited, _id}) => {
     row.classList.add('tableRow');
     row.innerHTML = `
                 <span>
+                    <span class="small">
+                        Name: 
+                    </span>
                     ${name}
                 </span>
                 <span>
+                    <span class="small">
+                        #ID: 
+                    </span>
                     ${_id}
                 </span>
                 <span>
+                    <span class="small">
+                        Email: 
+                    </span>
                     ${email}
                 </span>
                 <span>
+                    <span class="small">
+                        Deposited:
+                    </span>
                     ${amountDeposited}
                 </span>
                 <span>
+                    <span class="small">
+                        Balance:
+                    </span>
                     ${currentBalance}
                 </span>`;
     return row;
@@ -60,7 +75,7 @@ const getButtons = (id) => {
 };
 
 const renderUsers = () => {
-    [...document.querySelectorAll('.tableRow')].forEach(row => row.remove());
+    // [...document.querySelectorAll('.tableRow')].forEach(row => row.remove());
     users.forEach(user => {
         const div = getRow(user);
         div.id = user._id;

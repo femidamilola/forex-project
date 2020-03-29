@@ -58,6 +58,12 @@ body{
     word-break: break-word;
 }
 
+.tableRow .small{
+    font-size: 14px;
+    font-weight: 700;
+    display: none;
+}
+
 .tableHeader{
     font-size: 14px;
     font-weight: 600;
@@ -112,12 +118,17 @@ body{
 }
 
 @media (max-width: 800px) {
-    .tableRow,
-    .tableHeader{
+    .tableRow{
         grid-template-columns: 1fr;
         height: fit-content;
         grid-row-gap: 20px;
         padding: 30px 40px;
+    }
+    .tableHeader{
+        display: none;
+    }
+    .tableRow .small{
+        display: inline;
     }
     .buttons{
         display: grid;

@@ -60,9 +60,9 @@ let users;
 const depositModal = document.getElementById('depositModal');
 const profitModal = document.getElementById('profitModal');
 
-let currentDeposit,currentProfit;
+let currentDeposit, currentProfit;
 
-const getRow = ({name, email, currentBalance,amountDeposited, _id}) => {
+const getRow = ({name, email, currentBalance, amountDeposited, _id}) => {
     const row = document.createElement('div');
     row.classList.add('tableRow');
     row.innerHTML = `
@@ -95,7 +95,7 @@ const getButtons = (id) => {
     depositButton.addEventListener('click', () => {
         const user = users.find(({_id}) => id === _id);
         depositModal.querySelector('.modalText').innerHTML = `Target: ${user.name} (${user.email})`;
-        currentDeposit = user._id;
+        currentDeposit = user.email;
         depositModal.classList.add('active');
     });
 
@@ -106,7 +106,7 @@ const getButtons = (id) => {
     profitButton.addEventListener('click', () => {
         const user = users.find(({_id}) => id === _id);
         profitModal.querySelector('.modalText').innerHTML = `Target: ${user.name} (${user.email})`;
-        currentProfit = user._id;
+        currentProfit = user.email;
         profitModal.classList.add('active');
     });
 
@@ -116,24 +116,29 @@ const getButtons = (id) => {
     return buttonsDiv
 };
 
+const renderUsers = () => {
+    [...document.querySelectorAll('.tableRow')].forEach(row => row.remove());
+    users.forEach(user => {
+        const div = getRow(user);
+        div.id = user._id;
+        const buttons = getButtons(user['_id']);
+
+        div.appendChild(buttons);
+
+        document.querySelector('.table').appendChild(div);
+    });
+};
+
 window.fetchHelper('GET', 'all-users')
     .then((response) => {
-        if(response.status === 200){
+        if (response.status === 200) {
             return JSON.parse(response.responseText)
         }
         return Promise.reject();
     })
     .then(({users: fetchedUsers}) => {
         users = fetchedUsers;
-        users.forEach(user => {
-            const div = getRow(user);
-
-            const buttons = getButtons(user['_id']);
-
-            div.appendChild(buttons);
-
-            document.querySelector('.table').appendChild(div);
-        });
+        renderUsers()
     })
     .catch(err => {
         console.log(err);
@@ -142,13 +147,38 @@ window.fetchHelper('GET', 'all-users')
 
 
 depositModal.addEventListener('click', ({target}) => {
-    if(depositModal.isEqualNode(target)){
+    if (depositModal.isEqualNode(target)) {
         depositModal.classList.remove('active')
     }
 });
 
+const depositButton = depositModal.querySelector('.button');
+depositButton.addEventListener('click', async () => {
+    const amount = depositModal.querySelector('.modalInput').value;
+    depositButton.classList.add('loading');
+    const fetch = await window.fetchHelper('POST', 'deposit', {
+        "email": currentDeposit,
+        "amount": Number(amount)
+    });
+    if(fetch.status === 200){
+        const userIndex = users.findIndex(({email}) => email === currentDeposit);
+        users[userIndex].amountDeposited = amount;
+        users[userIndex].currentBalance = amount;
+        renderUsers();
+    }else{
+        window.setStatus('error', true, 'There was an issue updating the records. Kindly try again')
+    }
+    depositButton.classList.remove('loading');
+    depositModal.classList.remove('active');
+});
+
 profitModal.addEventListener('click', ({target}) => {
-    if(profitModal.isEqualNode(target)){
+    if (profitModal.isEqualNode(target)) {
         profitModal.classList.remove('active')
     }
+});
+
+const profitButton = profitModal.querySelector('.button');
+profitButton.addEventListener('click', () => {
+
 });

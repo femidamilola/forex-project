@@ -1,3 +1,12 @@
+const convertToFormatted = (amount, withSymbol = true) => {
+    return new Intl.NumberFormat(
+        'en-US',
+        {style: 'currency', currency: 'USD'}
+    )
+        .format(amount)
+        .substr( withSymbol ? 0 : 1);
+};
+
 let users;
 
 const depositModal = document.getElementById('depositModal');
@@ -31,13 +40,13 @@ const getRow = ({name, email, currentBalance, amountDeposited, _id}) => {
                     <span class="small">
                         Deposited:
                     </span>
-                    ${amountDeposited}
+                    ${convertToFormatted(amountDeposited)}
                 </span>
                 <span>
                     <span class="small">
                         Balance:
                     </span>
-                    ${currentBalance}
+                    ${convertToFormatted(currentBalance)}
                 </span>`;
     return row;
 };

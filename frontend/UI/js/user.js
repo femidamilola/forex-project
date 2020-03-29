@@ -1,5 +1,14 @@
 const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
 
+const convertToFormatted = (amount, withSymbol = true) => {
+    return new Intl.NumberFormat(
+        'en-US',
+        {style: 'currency', currency: 'USD'}
+    )
+        .format(amount)
+        .substr( withSymbol ? 0 : 1);
+};
+
 if (user) {
     window.fetchHelper('GET', `dashboard/${user.email}`, null, [
         {
@@ -22,7 +31,14 @@ if (user) {
                 'name',
             ];
             keys.forEach(key => {
-                document.getElementById(key).innerHTML = user[key]
+                if([
+                    'amountDeposited',
+                    'currentBalance',
+                ].includes(key)){
+                    document.getElementById(key).innerHTML = convertToFormatted(user[key])
+                }else{
+                    document.getElementById(key).innerHTML = user[key]
+                }
             });
             if(user.currentBalance){
                 const increase = ((user.currentBalance - user.amountDeposited)/user.currentBalance) * 100
